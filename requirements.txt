@@ -1,11 +1,11 @@
 fastapi
 uvicorn
 openai-clip
-torch
-torchvision
+onnxruntime
 pillow
 cloudinary
 python-multipart
 requests
 python-dotenv
 numpy
+psutil
