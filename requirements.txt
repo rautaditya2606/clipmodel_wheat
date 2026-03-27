@@ -1,5 +1,6 @@
 fastapi
 uvicorn
+setuptools
 openai-clip
 onnxruntime
 pillow
@@ -9,3 +10,6 @@ requests
 python-dotenv
 numpy
 psutil
+ftfy
+regex
+tqdm
