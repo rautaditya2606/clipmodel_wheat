@@ -1,5 +1,6 @@
 import requests
 import os
+import time
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -29,9 +30,14 @@ def download_and_upload(name, url):
     # Upload to our FastAPI server
     files = {"file": (f"{name}.jpg", response.content, "image/jpeg")}
     try:
+        start_time = time.time()
         api_response = requests.post(API_URL, files=files)
+        end_time = time.time()
+        
+        duration = end_time - start_time
         print(f"Status Code: {api_response.status_code}")
         print(f"Response: {api_response.json()}")
+        print(f"Time Taken: {duration:.2f} seconds")
     except Exception as e:
         print(f"Error connecting to API: {e}. Is the server running?")
 

@@ -1,6 +1,7 @@
 fastapi
 uvicorn
-onnxruntime
+torch --index-url https://download.pytorch.org/whl/cpu
+openai-clip
 pillow
 cloudinary
 python-multipart
