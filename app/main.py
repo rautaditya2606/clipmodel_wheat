@@ -4,6 +4,7 @@ from app.models.clip_model import clip_processor
 from PIL import Image
 from io import BytesIO
 import json
+import numpy as np
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
@@ -26,13 +27,14 @@ async def verify_crop(file: UploadFile = File(...)):
         
         # 3. CLIP verification (Processes Image object directly)
         clip_results = clip_processor.process_image(image, all_labels)
+        clip_results_np = np.array(clip_results)
         
         # Get scores for allowed labels
-        allowed_scores = clip_results[:len(allowed_labels)]
-        max_allowed_score = float(max(allowed_scores))
+        allowed_scores = clip_results_np[:len(allowed_labels)]
+        max_allowed_score = float(np.max(allowed_scores))
         
         # Get the label with the highest overall score
-        top_label_index = clip_results.argmax()
+        top_label_index = int(np.argmax(clip_results_np))
         is_allowed_top = top_label_index < len(allowed_labels)
 
         # 4. Decision logic (Flagging)
@@ -42,7 +44,7 @@ async def verify_crop(file: UploadFile = File(...)):
                 "is_crop": False,
                 "message": "Image does not appear to be wheat or a crop field.",
                 "top_detected_category": all_labels[top_label_index],
-                "confidence": float(clip_results[top_label_index])
+                "confidence": float(clip_results_np[top_label_index])
             }
 
         return {

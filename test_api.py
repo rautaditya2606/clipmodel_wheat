@@ -13,9 +13,8 @@ TEST_IMAGES = {
     "wheat_close_up": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt_4zMMTKOSWDROkVkfBdm_2U2g4VKOh1_Gg&s",
 }
 
-# Deployed URL: https://wheat-detection-es09.onrender.com/
-# API_URL = "https://wheat-detection-es09.onrender.com/verify-crop/"
-API_URL = "http://127.0.0.1:8000/verify-crop/"
+# API_URL = "http://127.0.0.1:8000/verify-crop/"
+API_URL = "https://clipmodel-wheat.onrender.com/verify-crop/"
 
 def download_and_upload(name, url):
     print(f"\n--- Testing: {name} ---")
