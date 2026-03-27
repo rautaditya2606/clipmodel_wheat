@@ -9,5 +9,3 @@ requests
 python-dotenv
 numpy
 psutil
-torch
-torchvision
