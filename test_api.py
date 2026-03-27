@@ -14,7 +14,8 @@ TEST_IMAGES = {
 }
 
 # Deployed URL: https://wheat-detection-es09.onrender.com/
-API_URL = "https://wheat-detection-es09.onrender.com/verify-crop/"
+# API_URL = "https://wheat-detection-es09.onrender.com/verify-crop/"
+API_URL = "http://127.0.0.1:8000/verify-crop/"
 
 def download_and_upload(name, url):
     print(f"\n--- Testing: {name} ---")
