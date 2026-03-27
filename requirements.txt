@@ -1,7 +1,5 @@
 fastapi
 uvicorn
-setuptools
-openai-clip
 onnxruntime
 pillow
 cloudinary
